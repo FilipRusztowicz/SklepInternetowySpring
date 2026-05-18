@@ -9,3 +9,25 @@ po pierwszej intrukcji->
 druga instrukcja
 potem->
 wymyślenie swojej tematyki i przerobienie strony na swoją
+
+inst 2:
+public String home(Model model) -> dodać Model (!dobra biblioteka musi być!)
+model.addAttribute("nazwaTegoAtrybutu",new Item(uzueplnienie pól))
+
+do html dodać wszędzie <html xmlns:th="http://www.thymeleaf.org">
+w znaczniku tam gdzie chcesz mieć cośwypisane dodaj th:text="${nazwaTegoAtrybutu}" ---> po kropce [nazwaTegoAtrybutu.]można se odczytywać
+th:text="${}" -> pobierz wartość i zamien na tekst, wyświetl
+th:each="item ${items}" -> przechodzi po każdym itemie z kolekcji items(Lista)
+<div class="item" th:each="item :${items}"> -> wykona sie tyle div'ów ile itemów w liście
+
+
+Wskazówki do obsługi formularza – gdzie i jak ma zostać wysłany, żeby to określić
+podajemy th:action w znaczniku form, i po @ podajemy punkt dostępu oraz metodę POST
+th:action="@{/admin}"
+
+a potem w ciele np:
+<label>Nazwa</label>
+<input type="text" name="nazwa" required>
+
+name -> !WAŻNE! to jest nazwa pola z itemów
+
