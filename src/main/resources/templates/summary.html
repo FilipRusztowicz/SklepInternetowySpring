@@ -6,20 +6,10 @@
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 <body>
-    <header>
-        <span class="title">MyShop</span>
+<header th:replace="fragments/header :: ShopHeader"></header>
 
-        <a href="" class="cart-ico">
-            <div>
-                <span>Koszyk</span>
-                <span>(0)</span>
-                <span>0</span>
-                <span>zł</span>
-            </div>
-        </a>
-    </header>
 
-    <div class="main-content">
+<div class="main-content">
 
             <table cellspacing="0" style="border: 0px">
                 <tr>
