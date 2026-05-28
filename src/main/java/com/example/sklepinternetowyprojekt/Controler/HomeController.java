@@ -48,6 +48,10 @@ public class HomeController {
             session.setAttribute("cart",cart);
         }
         model.addAttribute("items",itemRepository.findAll());
-        return "home";
+
+        return "redirect:/";//tutaj był problem jeżeli chodzi o dodające się itemy do koszyka
+        //działo się to ponieważ serwer zamiast iść pod nowy adres strony
+        //wysyłał sam sobie adres w którym było już id i je odczytywał
+        //przez to się zapętlał
     }
 }
