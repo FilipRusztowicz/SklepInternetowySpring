@@ -28,6 +28,14 @@ public class CartItem {
         }
     }
 
+    public boolean isEquals(Item item){
+        return this.item.getId().equals(item.getId());
+    }
+
+    public boolean dupsko(){
+        return counter>1;
+    }
+
     public void recalculatePrice(){
         price=item.getCena().multiply(new BigDecimal(counter));
     }
