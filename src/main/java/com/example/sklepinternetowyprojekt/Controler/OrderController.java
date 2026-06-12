@@ -1,5 +1,6 @@
 package com.example.sklepinternetowyprojekt.Controler;
 
+import com.example.sklepinternetowyprojekt.ItemOperations;
 import com.example.sklepinternetowyprojekt.Service.CartService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,18 +22,18 @@ private final CartService cartService;
     }
     @GetMapping("/increase/{itemId}")
     public String increaseItem(@PathVariable("itemId") Long itemId ) {
-        cartService.addItemToCart(itemId);
+        cartService.itemOperation(itemId, ItemOperations.INCREASE);
         return "cartView";
     }
     @GetMapping("/decrease/{itemId}")
     public String decreaseItem(@PathVariable("itemId") Long itemId ) {
-        cartService.decreaseItem(itemId);
+        cartService.itemOperation(itemId,ItemOperations.DECREASE);
         return "cartView";
     }
 
     @GetMapping("/remove/{itemId}")
     public String removeItem(@PathVariable("itemId") Long itemId ) {
-        cartService.removeItem(itemId);
+        cartService.itemOperation(itemId,ItemOperations.REMOVE);
         return "cartView";
     }
 

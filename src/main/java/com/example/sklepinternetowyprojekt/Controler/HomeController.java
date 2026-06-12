@@ -1,4 +1,5 @@
 package com.example.sklepinternetowyprojekt.Controler;
+import com.example.sklepinternetowyprojekt.ItemOperations;
 import com.example.sklepinternetowyprojekt.Model.Item;
 import com.example.sklepinternetowyprojekt.Service.CartService;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ public class HomeController {
     }
     @GetMapping("/add/{itemId}")
     public String addItemToCart(@PathVariable("itemId") Long itemId, Model model) {
-        cartService.addItemToCart(itemId);
+        cartService.itemOperation(itemId, ItemOperations.INCREASE);
         model.addAttribute("items",cartService.getAllItems());
 
         return "home";
