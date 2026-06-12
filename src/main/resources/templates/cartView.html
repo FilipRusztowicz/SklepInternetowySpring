@@ -28,13 +28,13 @@
                     </td>
                     <td th:text="${cartItem.item.nazwa}"></td>
                     <td style="display: flex; padding-top: 10px">
-                        <a class="mbtn" href="">-</a>
+                        <a class="mbtn" th:href="@{'/order/decrease/'+${cartItem.item.id}}">-</a>
                         <p th:text="${cartItem.counter}"></p>
-                        <a class="mbtn" href="">+</a>
+                        <a class="mbtn" th:href="@{'/order/increase/'+${cartItem.item.id}}">+</a>
                     </td>
                     <td th:text="${cartItem.item.cena}"></td>
                     <td>
-                        <a class="mbtn" href="">X</a>
+                        <a class="mbtn" th:href="@{'/order/remove/'+${cartItem.item.id}}">X</a>
                     </td>
                 </tr>
             </table>
@@ -42,7 +42,7 @@
             <div class="summary">
                 <p><span>Do zapłaty</span><span th:text="${@cart.sum}"></span>zł</p>
             </div>
-            <a href="" class="add-btn">Dalej</a>
+            <a th:href="@{'/order/cart'}" class="add-btn">Dalej</a>
         </div>
     </div>
 </body>

@@ -44,16 +44,23 @@ public class Cart {
         recalculatePriceAndCounter();
     }
 
-    public void removeItem(Item item) {
+    public void decreaseItem(Item item) {
         Optional<CartItem> oCartItem = getCartItemByItem(item);
         if (oCartItem.isPresent()) {
             CartItem cartItem = oCartItem.get();
             cartItem.decreaseCounter();
             if (cartItem.hasZeroItems()) {
-                cartItems.remove(cartItem);
+                removeAllItems(item);
             }
             recalculatePriceAndCounter();
         }
+    }
+
+    public void removeAllItems(Item item) {
+        cartItems.removeIf(i->i.isEquals(item));
+
+        recalculatePriceAndCounter();
+
     }
 
     public List<CartItem> getCartItems() {
