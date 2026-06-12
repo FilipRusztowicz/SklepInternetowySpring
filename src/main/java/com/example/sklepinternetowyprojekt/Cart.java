@@ -15,7 +15,7 @@ import java.util.Optional;
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Cart {
 
-    List<CartItem> cartItems = new ArrayList<>();
+    public List<CartItem> cartItems = new ArrayList<>();
     int counter;
     BigDecimal sum= new BigDecimal(0.0);
     ItemRepository itemRepository;
